@@ -27,10 +27,23 @@ public class Pa2U3P4RaJoApplication implements CommandLineRunner {
 		
 		List<Hotel>listaHotel;
 		
-		 this.hotelService.buscarInnerJoin().stream().forEach(System.out::println);
+		System.out.println("--------------------------------- INNER OUTER JOIN ---------------------------------"); 
+		this.hotelService.buscarInnerJoin().stream().forEach(System.out::println);
+		 
+		 System.out.println("--------------------------------- RIGHT OUTER JOIN ---------------------------------");
+		 this.hotelService.buscarOuterRightJoin().stream().forEach(System.out::println);
 		
-	
-			
+		 System.out.println("--------------------------------- LEFT OUTER JOIN ---------------------------------");
+		 this.hotelService.buscarOuterLeftJoin().stream().forEach(System.out::println);
+		 
+		 System.out.println("---------------------------------LEFT OUTER JOIN HABITACIONES ---------------------------------");
+		 this.hotelService.buscarHabitacionOuterLeftJoin().stream().forEach(System.out::println);
+		
+		 System.out.println("--------------------------------- FULL OUTER JOIN ---------------------------------");
+		 this.hotelService.buscarOuterFullJoin().stream().forEach(System.out::println);
+		
+		 System.out.println("--------------------------------- WHERE JOIN ---------------------------------");
+		 this.hotelService.buscarWhereJoin().stream().forEach(System.out::println);
 			
 		
 		
