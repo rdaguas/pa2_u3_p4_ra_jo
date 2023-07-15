@@ -7,6 +7,8 @@ import com.example.demo.repository.modelo.Hotel;
 
 public interface IHotelService {
 	
+	public void guardar(Hotel hotel);
+	
 	public List<Hotel> buscarInnerJoin();
 	
 	public List<Hotel> buscarOuterRightJoin();
@@ -18,6 +20,9 @@ public interface IHotelService {
 	public List<Hotel> buscarOuterFullJoin();
 	
 	public List<Hotel> buscarWhereJoin();
+	
+	public List<Hotel> buscarFetchJoin();
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,10 @@ public class HotelServiceImpl implements IHotelService {
 
 	@Autowired
 	private IHotelRepository hotelRepository;
-	
+
 	@Override
 	public List<Hotel> buscarInnerJoin() {
-		
+
 		return this.hotelRepository.seleccionarInnerJoin();
 	}
 
@@ -51,4 +52,20 @@ public class HotelServiceImpl implements IHotelService {
 		return this.hotelRepository.seleccionarWhereJoin();
 	}
 
+	@Override
+	public List<Hotel> buscarFetchJoin() {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.seleccionarFetchJoin();
+	}
+
+	@Override
+	public void guardar(Hotel hotel) {
+		hotel.getHabitaciones().forEach(a -> {
+
+		BigDecimal valorIva = a.getValor().multiply(new BigDecimal(1.12));
+
+		a.setValorIncluidoIva(valorIva.add(a.getValor()));
+		});
+		this.hotelRepository.insertar(hotel);
+	}
 }
