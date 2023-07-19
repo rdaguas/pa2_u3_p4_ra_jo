@@ -1,7 +1,9 @@
 package com.example.demo.repository.modelo;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -26,7 +28,7 @@ public class Matricula {
 	private Integer id;
 
 	@Column(name = "mtla_fecha")
-	private LocalDateTime fecha;
+	private LocalDate fecha;
 
 	@Column(name = "mtla_numero")
 	private String numero;
@@ -41,8 +43,9 @@ public class Matricula {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "mtla_id_materia")
 	private Materia materia;
-
+	
 	// set y get
+
 	public Integer getId() {
 		return id;
 	}
@@ -51,11 +54,11 @@ public class Matricula {
 		this.id = id;
 	}
 
-	public LocalDateTime getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDateTime fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 
@@ -67,13 +70,12 @@ public class Matricula {
 		this.numero = numero;
 	}
 
-
-	public Materia getMateria() {
-		return materia;
+	public BigDecimal getPrecio() {
+		return precio;
 	}
 
-	public void setMateria(Materia materia) {
-		this.materia = materia;
+	public void setPrecio(BigDecimal precio) {
+		this.precio = precio;
 	}
 
 	public Estudiante getEstudiante() {
@@ -83,7 +85,19 @@ public class Matricula {
 	public void setEstudiante(Estudiante estudiante) {
 		this.estudiante = estudiante;
 	}
+
+	public Materia getMateria() {
+		return materia;
+	}
+
+	public void setMateria(Materia materia) {
+		this.materia = materia;
+	}
+
+
 	
+	
+
 	
 
 }

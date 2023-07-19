@@ -26,4 +26,10 @@ public class MateriaServiceImpl implements IMateriaService {
 		return this.materiaRepository.seleccionarPorCodigo();
 	}
 
+	@Override
+	public Materia buscarPorcodigo(String codigo) {
+		// TODO Auto-generated method stub
+		return this.materiaRepository.seleccionarPorcodigo(codigo);
+	}
+
 }

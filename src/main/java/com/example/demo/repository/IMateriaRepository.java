@@ -9,5 +9,6 @@ public interface IMateriaRepository {
 	public void insertar(Materia materia);
 	
 	public List<Materia> seleccionarPorCodigo();
+	public Materia seleccionarPorcodigo(String codigo);
 
 }

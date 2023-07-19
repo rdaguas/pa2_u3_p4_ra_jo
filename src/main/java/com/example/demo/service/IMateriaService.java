@@ -9,5 +9,7 @@ public interface IMateriaService {
 	public void insertar(Materia materia);
 	
 	public List<Materia> buscarPorCodigo();
+	
+	public Materia buscarPorcodigo(String codigo);
 
 }

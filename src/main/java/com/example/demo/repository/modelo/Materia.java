@@ -42,7 +42,6 @@ public class Materia {
 	private Semestre semestre;
 
 	
-	
 	@Override
 	public String toString() {
 		return "Materia [id=" + id + ", nombre=" + nombre + ", codigo=" + codigo + ", precio=" + precio + "]";

@@ -38,7 +38,7 @@ public class Estudiante {
 	@OneToMany(mappedBy = "estudiante")
 	private List<Matricula> matriculas;
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="estudiante_id_provincia")
 	private Provincia provincia;
 	

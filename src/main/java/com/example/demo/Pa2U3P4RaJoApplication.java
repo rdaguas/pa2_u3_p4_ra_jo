@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +62,11 @@ public class Pa2U3P4RaJoApplication implements CommandLineRunner {
 		smtr.setNumero("Semestre 1");
 		smtr.setParalelo("B");
 		
+		Semestre smtr2 = new Semestre();
+		smtr2.setHorario("Matutino");
+		smtr2.setNumero("Semestre 2");
+		smtr2.setParalelo("C");
+		
 		
 		List<Materia>materias= new ArrayList<>();
 		Materia mate = new Materia();
@@ -68,28 +74,39 @@ public class Pa2U3P4RaJoApplication implements CommandLineRunner {
 		mate.setNombre("PA2");
 		mate.setPrecio(new BigDecimal(30));
 		mate.setSemestre(smtr);
-		
+		//this.materiaService.insertar(mate);
 		Materia mate2 = new Materia();
 		mate2.setCodigo("456xyz");
 		mate2.setNombre("IA");
 		mate2.setPrecio(new BigDecimal(20));
-		mate2.setSemestre(smtr);
+		mate2.setSemestre(smtr2);
 		
 		materias.add(mate);
 		materias.add(mate2);
-		
-		//this.materiaService.insertar(mate);
-		//this.materiaService.insertar(mate2);
+//		
+//		this.materiaService.insertar(mate);
+//		this.materiaService.insertar(mate2);
 		
 		Matricula mtra = new Matricula();
-		mtra.setFecha(LocalDateTime.now());
+		mtra.setFecha(LocalDate.now());
 		mtra.setNumero("11");
-		mtra.setEstudiante(estu);
-		mtra.setMateria(mate);
+		//mtra.setEstudiante(estu);
+		//mtra.setMateria(mate);
+		//mtra.setMateria(mate2);
+		
 		
 		//this.matriculaService.agregarMatricula(mtra);
 		
+		List<String>codMatriculas= new ArrayList<>();
+		String codM1="123ab";
+		String codM2="456xyz";
+		codMatriculas.add(codM1);
+		codMatriculas.add(codM2);
+		
+		
 		System.out.println(this.estudianteService.buscarPorCedula("010"));
+		
+		this.matriculaService.agregarMatricula("010", codMatriculas);
 		
 		this.materiaService.buscarPorCodigo().stream().forEach(System.out::println);
 		

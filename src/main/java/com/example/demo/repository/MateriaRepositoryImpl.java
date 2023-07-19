@@ -31,4 +31,11 @@ public class MateriaRepositoryImpl implements IMateriaRepository{
 		return myQuery.getResultList();
 	}
 
+	@Override
+	public Materia seleccionarPorcodigo(String codigo) {
+		TypedQuery<Materia> myQuery = this.entityManager.createQuery("SELECT m FROM Materia m WHERE m.codigo = :datoCodigo",Materia.class);
+		myQuery.setParameter("datoCodigo", codigo);
+		return myQuery.getSingleResult();
+	}
+
 }

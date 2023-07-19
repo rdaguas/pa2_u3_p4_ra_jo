@@ -40,8 +40,7 @@ public class Semestre {
 
 	@Override
 	public String toString() {
-		return "Semestre [id=" + id + ", numero=" + numero + ", paralelo=" + paralelo + ", horario=" + horario
-				+ "]";
+		return "Semestre [id=" + id + ", numero=" + numero + ", paralelo=" + paralelo + ", horario=" + horario + "]";
 	}
 
 	public Integer getId() {

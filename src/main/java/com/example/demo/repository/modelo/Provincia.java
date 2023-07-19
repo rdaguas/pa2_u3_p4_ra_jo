@@ -29,7 +29,7 @@ public class Provincia {
 	@Column(name="prov_canton")
 	private String canton;
 	
-	@OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "provincia")
 	private List<Estudiante>estudiantes;
 	
 	
