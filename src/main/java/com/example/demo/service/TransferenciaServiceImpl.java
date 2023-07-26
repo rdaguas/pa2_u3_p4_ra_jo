@@ -13,6 +13,7 @@ import com.example.demo.repository.modelo.CuentaBancaria;
 import com.example.demo.repository.modelo.Transferencia;
 
 import jakarta.transaction.Transactional;
+import jakarta.transaction.Transactional.TxType;
 
 @Service
 public class TransferenciaServiceImpl implements ITransferenciaService {
@@ -24,16 +25,12 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 	private ITransferenciaRepository transferenciaRepository;
 	
 	@Override
+	@Transactional(value = TxType.REQUIRES_NEW)
 	public void realizarTransferencia(String numeroO, String numeroD, BigDecimal monto) {
 		
 		CuentaBancaria cuentaO = this.bancariaRepository.seleccionarPorNumero(numeroO);
 		CuentaBancaria cuentaD = this.bancariaRepository.seleccionarPorNumero(numeroD);
-	
 		Transferencia transfer = new Transferencia();
-		transfer.setCuentaBancariaO(cuentaO);
-		transfer.setCuentaBancariaD(cuentaD);
-		transfer.setFecha(LocalDate.now());
-		transfer.setMonto(monto);
 		
 		if(cuentaO.getSaldo().compareTo(monto)>=0) {
 			
@@ -43,12 +40,21 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 			cuentaO.setSaldo(cuentaD.getSaldo().subtract(monto));
 			this.bancariaRepository.actualizar(cuentaD);
 			
-			this.transferenciaRepository.insertar(transfer);
+		
+			
+			
 			
 		}else {
 			System.out.println("SALDO INSUFICIENTE");
+			throw new RuntimeException();
 		}
-		
+		transfer.setCuentaBancariaO(cuentaO);
+		transfer.setCuentaBancariaD(cuentaD);
+		transfer.setFecha(LocalDate.now());
+		transfer.setMonto(monto);
+		this.transferenciaRepository.insertar(transfer);
+
+	
 		
 		
 	}

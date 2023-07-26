@@ -29,14 +29,14 @@ public class PropietarioServiceImpl implements IPropietarioService {
 	@Transactional
 	public void ingresar(Propietario propietario) {
 		System.out.println("Service:"+TransactionSynchronizationManager.isActualTransactionActive());
-		//this.propietarioRepository.insertar(propietario);
+		this.propietarioRepository.insertar(propietario);
 		//this.prueba();
 		//this.pruebaService.prueba();
 		//this.pruebaService.prueba3();
 		//this.pruebaService.pruebaSupports();
 		//this.pruebaService.pruebaNotSupports();
 		//this.pruebaService.pruebaRequired();
-		this.pruebaService.pruebaRequiresNew();
+		//this.pruebaService.pruebaRequiresNew();
 	}
 
 	@Override
