@@ -12,6 +12,11 @@ public class MetodosReferenciados {
 		return 8;
 	}
 	
+	public String getIdHO() {
+		LOG.info("Metodos ReferenciadosHO");
+		return "Jimmy Ortegaa";
+	}
+	
 	
 	public void aceptar(String arg) {
 		String cadena = "Jimmyyyyyyyyyyyy";
