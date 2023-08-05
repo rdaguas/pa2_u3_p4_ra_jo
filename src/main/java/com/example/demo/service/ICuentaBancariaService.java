@@ -5,6 +5,8 @@ import com.example.demo.repository.modelo.CuentaBancaria;
 public interface ICuentaBancariaService {
 	
 public void ingresar(CuentaBancaria cuentaBancaria);
+
+public String ingresar2(CuentaBancaria cuentaBancaria);
 	
 	public void actualizar(CuentaBancaria cuentaBancaria);
 	
